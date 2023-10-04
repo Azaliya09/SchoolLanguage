@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolLanguage.Base;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace SchoolLanguage
     /// </summary>
     public partial class App : Application
     {
+        public static SchoolLanguageAzaliya09Entities db = new SchoolLanguageAzaliya09Entities();
     }
 }
