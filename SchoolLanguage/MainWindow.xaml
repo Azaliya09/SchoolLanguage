@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolLanguage"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Школа языков 'Леарн'" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="181*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="379*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#FFE7FABF" Grid.RowSpan="2"></Rectangle>
+        <Rectangle Fill="#FFE7FABF" Grid.ColumnSpan="2"></Rectangle>
+        <Image Source="/Resources/school_logo.png" ></Image>
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="5">
+            <Button x:Name="BackBtn">Назад</Button>
+            <Button x:Name="ForwardBtn">Вперед</Button>
+        </StackPanel>
+        <TextBlock x:Name="TitleTb" Grid.Column="1">Школа языков"Леарн"</TextBlock>
+        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
     </Grid>
 </Window>
