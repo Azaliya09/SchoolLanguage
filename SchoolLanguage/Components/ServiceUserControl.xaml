@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="SchoolLanguage.Components.ServiceUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SchoolLanguage.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="450">
+
+    <Border BorderBrush="lightGray" BorderThickness="2" Margin="2" Width="750">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+        <Image Margin="5" Height="110" x:Name="ImageImg" Grid.RowSpan="4" Source="/Resources/school_logo.png"></Image>
+        <TextBlock Grid.Column="1" x:Name="TitleTb" ></TextBlock>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBlock  x:Name="CostTb" TextDecorations="Strikethrough" ></TextBlock>
+                <TextBlock  x:Name="CostTimeTb" ></TextBlock>
+            </StackPanel>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="DiscountTb" ></TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
+            <Button>Редактировать</Button>
+            <Button>Удалить</Button>
+        </StackPanel>
+
+    </Grid>
+    </Border>
+</UserControl>
