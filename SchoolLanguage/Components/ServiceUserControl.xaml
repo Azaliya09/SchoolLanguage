@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="450">
 
-    <Border BorderBrush="lightGray" BorderThickness="2" Margin="2" Width="750">
+    <Border x:Name="MainBorder" BorderBrush="lightGray" BorderThickness="2" Margin="2" Width="750">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
@@ -27,8 +27,8 @@
             </StackPanel>
             <TextBlock Grid.Row="2" Grid.Column="1" x:Name="DiscountTb" ></TextBlock>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
-            <Button>Редактировать</Button>
-            <Button>Удалить</Button>
+            <Button x:Name="EditBtn">Редактировать</Button>
+            <Button x:Name="DeleteBtn">Удалить</Button>
         </StackPanel>
 
     </Grid>

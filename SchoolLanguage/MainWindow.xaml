@@ -19,10 +19,10 @@
         <Rectangle Fill="#FFE7FABF" Grid.ColumnSpan="2"></Rectangle>
         <Image Source="/Resources/school_logo.png" ></Image>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="5">
-            <Button x:Name="BackBtn">Назад</Button>
-            <Button x:Name="ForwardBtn">Вперед</Button>
+            <Button x:Name="BackBtn" Click="BackBtn_Click">Назад</Button>
+            <Button x:Name="ExitBtn" Click="ExitBtn_Click">Выход</Button>
         </StackPanel>
         <TextBlock x:Name="TitleTb" Grid.Column="1" FontSize="25" HorizontalAlignment="Center">Школа языков"Леарн"</TextBlock>
-        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
+        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
