@@ -49,6 +49,23 @@ namespace SchoolLanguage.Pages
                 }
                     
             }
+            if (DiscountFilterCb.SelectedIndex != 0)
+            {
+                if(DiscountFilterCb.SelectedIndex == 1)
+                    serviceSortList = serviceSortList.Where(x=>x.Discount>=0 && x.Discount<5);
+                if (DiscountFilterCb.SelectedIndex == 2)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 5 && x.Discount <15);
+                if (DiscountFilterCb.SelectedIndex == 3)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 15 && x.Discount <30);
+                if (DiscountFilterCb.SelectedIndex == 4)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 30 && x.Discount <70);
+                if (DiscountFilterCb.SelectedIndex == 5)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 70 && x.Discount <100);
+            }
+            if(SearchTb.Text != null)
+            {
+                serviceSortList = serviceSortList.Where(x => x.Title.ToLower().Contains(SearchTb.Text.ToLower()) || x.Description.ToLower().Contains(SearchTb.Text.ToLower()));
+            }
             ServicesWp.Children.Clear();
             foreach (var service in serviceSortList)
             {
@@ -56,6 +73,16 @@ namespace SchoolLanguage.Pages
             }
         }
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void DiscountFilterCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
         }
