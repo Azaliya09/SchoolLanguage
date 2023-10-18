@@ -46,7 +46,7 @@ namespace SchoolLanguage.Pages
                 else 
                 {
                     serviceSortList = serviceSortList.OrderByDescending(x => x.CostDiscount);
-                }
+                }                                                                                                                                                                                                                                                                                                                                                                                                                
                     
             }
             if (DiscountFilterCb.SelectedIndex != 0)
@@ -71,6 +71,7 @@ namespace SchoolLanguage.Pages
             {
                 ServicesWp.Children.Add(new ServiceUserControl(service));
             }
+            CountDataTb.Text = serviceSortList.Count() + " из " + App.db.Service.Count();
         }
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -85,6 +86,11 @@ namespace SchoolLanguage.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditServicePage());
         }
     }
 }

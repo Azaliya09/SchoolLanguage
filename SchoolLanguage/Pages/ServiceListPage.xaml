@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolLanguage.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="850"
       Title="ServiceListPage">
 
     <Grid>
@@ -35,7 +35,10 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
             <WrapPanel x:Name="ServicesWp"/>
         </ScrollViewer>
-        <Button Width="100" Height="30" HorizontalAlignment="Center" x:Name="AddBtn" Grid.Row="2">Добавить</Button>
-        
+       
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+             <Button Width="100" Height="30" HorizontalAlignment="Center" x:Name="AddBtn" Grid.Row="2" Click="AddBtn_Click">Добавить</Button>
+            <TextBlock Margin="20 0" x:Name="CountDataTb"></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>
