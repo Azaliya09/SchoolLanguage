@@ -1,6 +1,7 @@
 ﻿using SchoolLanguage.Base;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,17 @@ namespace SchoolLanguage.Components
             CostTb.Text = (service.Cost).ToString("N0") + " ";
             CostTb.Visibility = service.CostVisibility;
             MainBorder.Background = service.ColorDiscount;
+            ImageImg.Source = GetImageSources(service.MainImage);
+
+        }
+        private BitmapImage GetImageSources(byte[] byteImage)
+        {
+            MemoryStream byteStream = new MemoryStream(byteImage);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = byteStream;
+            image.EndInit();
+            return image;
         }
         
     }

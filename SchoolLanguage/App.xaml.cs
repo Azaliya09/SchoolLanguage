@@ -15,6 +15,6 @@ namespace SchoolLanguage
     public partial class App : Application
     {
         public static SchoolLanguageAzaliya09Entities db = new SchoolLanguageAzaliya09Entities();
-        public static bool isAdmin=false; 
+        public static bool isAdmin=false;     
     }
 }
