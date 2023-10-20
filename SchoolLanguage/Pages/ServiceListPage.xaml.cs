@@ -90,7 +90,7 @@ namespace SchoolLanguage.Pages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditServicePage());
+            Navigation.NextPage(new PageComponent ("Добавление услуги", new AddEditServicePage(new Service())));
         }
     }
 }

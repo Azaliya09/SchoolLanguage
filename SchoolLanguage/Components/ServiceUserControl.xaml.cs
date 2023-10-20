@@ -23,9 +23,11 @@ namespace SchoolLanguage.Components
     /// </summary>
     public partial class ServiceUserControl : UserControl
     {
-        public ServiceUserControl(Service service)
+        private Service service;
+        public ServiceUserControl(Service _service)
         {
             InitializeComponent();
+            service= _service;
             if(App.isAdmin==false)
             {
                 EditBtn.Visibility = Visibility.Hidden;
@@ -52,7 +54,20 @@ namespace SchoolLanguage.Components
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
+            Navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditServicePage(service)));
+        }
 
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(service.ClientService != null)
+            {
+                MessageBox.Show("Удаление запрещено");
+            }
+            else
+            {
+                App.db.Service.Remove(service);
+                App.db.SaveChanges();
+            }
         }
     }   
 }

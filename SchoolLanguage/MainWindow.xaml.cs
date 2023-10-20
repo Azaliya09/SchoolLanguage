@@ -1,4 +1,5 @@
-﻿using SchoolLanguage.Pages;
+﻿using SchoolLanguage.Components;
+using SchoolLanguage.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +26,7 @@ namespace SchoolLanguage
         public MainWindow()
         {
             InitializeComponent();
+            Navigation.mainWindow = this;
             //var path = @"C:\Users\212118\Desktop\Task\Сессия 1\services_s_import\";
             //foreach(var item in App.db.Service.ToArray())
             //{
@@ -32,7 +34,7 @@ namespace SchoolLanguage
             //    item.MainImage = File.ReadAllBytes(fullPath);
             //}
             //App.db.SaveChanges();
-            MainFrame.Navigate(new AuthorizatePage());
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizatePage())); 
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -47,8 +49,8 @@ namespace SchoolLanguage
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
-            App.isAdmin = false;
-            MainFrame.Navigate(new AuthorizatePage());
+            Navigation.ClearHistory();
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizatePage()));
         }
     }
 }

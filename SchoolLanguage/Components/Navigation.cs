@@ -13,6 +13,11 @@ namespace SchoolLanguage.Components
         private static List<PageComponent> components = new List<PageComponent>();//храним историю
         public static MainWindow mainWindow;//получаем доступ ко всем элементам
 
+        public static void ClearHistory()
+        {
+            App.isAdmin = false;
+            components.Clear();
+        }
         private static void Update(PageComponent pageComponent)//принимает компонент к-й мы хотим открыть
         {
             mainWindow.TitleTb.Text = pageComponent.Title;//записывает заголок

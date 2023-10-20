@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolLanguage.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,8 +36,8 @@ namespace SchoolLanguage.Pages
             else
             {
                 MessageBox.Show("Вы вошли как пользователь!");
-            }    
-            NavigationService.Navigate(new ServiceListPage());
+            }
+            Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
         }
     }
 }

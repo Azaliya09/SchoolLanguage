@@ -5,38 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolLanguage.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="300"
+      d:DesignHeight="450" d:DesignWidth="700"
       Title="AddEditServicePage">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image Height="150"></Image>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Название</TextBlock>
-                <TextBox></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Стоимость</TextBlock>
-                <TextBox></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Длительность</TextBlock>
-                <TextBox></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Описание</TextBlock>
-                <TextBox TextWrapping="Wrap" Height="100"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Скидка</TextBlock>
-                <TextBox></TextBox>
-            </StackPanel>
-            <StackPanel>
-                <Button>Сохранить</Button>
-            </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             
+            <StackPanel Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Border BorderBrush="LightGray" BorderThickness="2">
+                        <Image Source="{Binding MainImage}" x:Name="ImageImg" Height="150"></Image>
+                    </Border>
+                    <Button x:Name="EditImageBtn">Изменить изображение</Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="30 0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock >Идентификатор</TextBlock>
+                    <TextBox Text="{Binding ID}" IsEnabled="False"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Название</TextBlock>
+                    <TextBox TextWrapping="Wrap" Height="90" Text="{Binding Title}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Стоимость</TextBlock>
+                        <TextBox Text="{Binding Cost}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Длительность сек.</TextBlock>
+                    <TextBox Text="{Binding DurationInSeconds}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Описание</TextBlock>
+                        <TextBox Text="{Binding Description}" TextWrapping="Wrap" Height="100"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Скидка</TextBlock>
+                        <TextBox Text="{Binding Discount}"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <Button x:Name="SaveBtn">Сохранить</Button>
+                </StackPanel>
+            </StackPanel>
+           
         </StackPanel>
     </Grid>
 </Page>
