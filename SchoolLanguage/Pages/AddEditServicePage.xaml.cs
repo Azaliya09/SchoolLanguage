@@ -31,6 +31,8 @@ namespace SchoolLanguage.Pages
             service = _service;
             this.DataContext = service;
             PhotoList.ItemsSource = App.db.ServicePhoto.Where(x => x.ServiceID == service.ID).ToList();
+            if (service.ID != 0)
+                StackPanelPhoto.Visibility = Visibility.Visible;
         }
 
         private void AddImageBtn_Click(object sender, RoutedEventArgs e)
@@ -94,13 +96,20 @@ namespace SchoolLanguage.Pages
                     error.AppendLine("Услуга с таким именем уже существует! ");
 
             }
+            else
+            {
+                App.db.Service.Add(service);
+                StackPanelPhoto.Visibility = Visibility.Visible;
+            }
+
             if (error.Length > 0)
             {
                 MessageBox.Show(error.ToString());
                 return;
             }
             App.db.SaveChanges();
-            Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
+            MessageBox.Show("Сохранено!");
+            //Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
 
         }
     }

@@ -17,7 +17,8 @@
                         <Image Source="{Binding MainImage}" x:Name="ImageImg" Height="150"></Image>
                     </Border>
                     <Button x:Name="EditImageBtn" Click="EditImageBtn_Click">Изменить изображение</Button>
-                    <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="330" Height="110" x:Name="PhotoList">
+                    <StackPanel x:Name="StackPanelPhoto" Visibility="Collapsed">
+                        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="330" Height="110" x:Name="PhotoList">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Image Height="100" Source="{Binding PhotoPath}"></Image>
@@ -31,10 +32,12 @@
                         
                     </ListView>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                      <Button Width="70" x:Name="AddImageBtn" Click="AddImageBtn_Click">Добавить</Button>
-                        <Button Width="70" x:Name="DeleteImageBtn" Click="DeleteImageBtn_Click">Удалить</Button>  
+                        <Button Width="70" x:Name="AddImageBtn" Click="AddImageBtn_Click">Добавить</Button>
+                        <Button Width="70" x:Name="DeleteImageBtn" Click="DeleteImageBtn_Click">Удалить</Button>
                     </StackPanel>
-                    
+                    </StackPanel>
+                      
+
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="30 0">
