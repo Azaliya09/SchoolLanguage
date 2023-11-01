@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="SchoolLanguageAzaliya09Model.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolLanguageAzaliya09Model.ProductSale" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolLanguageAzaliya09Model.Service" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolLanguageAzaliya09Model.ServicePhoto" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolLanguageAzaliya09Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolLanguageAzaliya09Model.Tag" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
         <AssociationConnector Association="SchoolLanguageAzaliya09Model.FK_AttachedProduct_Product" ManuallyRouted="false" />
@@ -27,8 +26,9 @@
         <AssociationConnector Association="SchoolLanguageAzaliya09Model.FK_Product_Manufacturer" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolLanguageAzaliya09Model.FK_ProductPhoto_Product" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolLanguageAzaliya09Model.FK_ProductSale_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="SchoolLanguageAzaliya09Model.FK_ServicePhoto_Service" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolLanguageAzaliya09Model.TagOfClient" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SchoolLanguageAzaliya09Model.ServicePhoto" Width="1.5" PointX="6" PointY="17.25" />
+        <AssociationConnector Association="SchoolLanguageAzaliya09Model.FK_ServicePhoto_Service" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

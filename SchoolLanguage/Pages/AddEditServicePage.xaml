@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolLanguage.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="700"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="AddEditServicePage">
 
     <Grid>
@@ -16,7 +16,25 @@
                     <Border BorderBrush="LightGray" BorderThickness="2">
                         <Image Source="{Binding MainImage}" x:Name="ImageImg" Height="150"></Image>
                     </Border>
-                    <Button x:Name="EditImageBtn">Изменить изображение</Button>
+                    <Button x:Name="EditImageBtn" Click="EditImageBtn_Click">Изменить изображение</Button>
+                    <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="330" Height="110" x:Name="PhotoList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Height="100" Source="{Binding PhotoPath}"></Image>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                      <Button Width="70" x:Name="AddImageBtn" Click="AddImageBtn_Click">Добавить</Button>
+                        <Button Width="70" x:Name="DeleteImageBtn" Click="DeleteImageBtn_Click">Удалить</Button>  
+                    </StackPanel>
+                    
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="30 0">
@@ -45,7 +63,7 @@
                         <TextBox Text="{Binding Discount}"></TextBox>
                 </StackPanel>
                 <StackPanel>
-                    <Button x:Name="SaveBtn">Сохранить</Button>
+                    <Button x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
                 </StackPanel>
             </StackPanel>
            
