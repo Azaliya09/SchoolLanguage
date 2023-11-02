@@ -59,7 +59,7 @@ namespace SchoolLanguage.Components
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(service.ClientService != null)
+            if(service.ClientService.Count != 0)
             {
                 MessageBox.Show("Удаление запрещено");
             }
@@ -67,7 +67,14 @@ namespace SchoolLanguage.Components
             {
                 App.db.Service.Remove(service);
                 App.db.SaveChanges();
+                Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
+
             }
+        }
+
+        private void SignUpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Запись на услугу", new SigningUpServicePage(service)));
         }
     }   
 }
