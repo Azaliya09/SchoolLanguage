@@ -33,21 +33,44 @@ namespace SchoolLanguage.Pages
             DateDp.DisplayDateStart = DateTime.Now;
         }
 
-        private bool isValidTime(string time)
+        private void SignUpBtn_Click(object sender, RoutedEventArgs e)
         {
-            string formatTime = @"\d{2}:\d{2}";//задаем регулярное выражение
-            if(Regex.IsMatch(time, formatTime))
+            if(DateDp.SelectedDate != null && string.IsNullOrWhiteSpace(TimeTb.Text) && ClientCb.SelectedItem != null)
             {
-                return true;
+                var selDateTime = $"{DateDp.SelectedDate.Value.ToString("yyyy-MM-dd")} {TimeTb.Text}";//MM-только  с заглавных букв
+                var timeSplit = TimeTb.Text.Split(':');
+                var hour = int.Parse(timeSplit[0]);
+                var minute = int.Parse(timeSplit[1]);
+                if(DateTime.TryParse(selDateTime, out DateTime result)) //TryParse возвращает  try/false
+                {
+                    if(DateTime.Now < result)
+                    {
+                        var selectClient = ClientCb.SelectedItem as Client;
+                        App.db.ClientService.Add(new ClientService()
+                        {
+                            ClientID = selectClient.ID,
+                            ServiceID = service.ID,
+                            StartTime = result
+                        });
+                        MessageBox.Show("Запись добавлена!!");
+                        App.db.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Нельзя записать на прошедшее время!!");
+                    }
+                
+                }
+                else
+                {
+                    MessageBox.Show("Неверный формат времени!!");
+                }
             }
             else
             {
-                return false;
+                MessageBox.Show("Заполните все поля!!");
             }
-        }
-        private void SignUpBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(isValidTime(TimeTb.Text).ToString());
+
         }
     }
 }
