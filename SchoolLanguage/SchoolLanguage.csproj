@@ -111,6 +111,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Base\PartialClass\Client.cs" />
+    <Compile Include="Base\PartialClass\ClientService.cs" />
     <Compile Include="Base\PartialClass\Service.cs" />
     <Compile Include="Base\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -149,6 +150,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ServiceEntriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ServiceListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +169,9 @@
     </Compile>
     <Compile Include="Pages\AuthorizatePage.xaml.cs">
       <DependentUpon>AuthorizatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ServiceEntriesPage.xaml.cs">
+      <DependentUpon>ServiceEntriesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ServiceListPage.xaml.cs">
       <DependentUpon>ServiceListPage.xaml</DependentUpon>

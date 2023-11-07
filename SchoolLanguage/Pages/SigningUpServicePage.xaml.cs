@@ -35,7 +35,7 @@ namespace SchoolLanguage.Pages
 
         private void SignUpBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(DateDp.SelectedDate != null && string.IsNullOrWhiteSpace(TimeTb.Text) && ClientCb.SelectedItem != null)
+            if(DateDp.SelectedDate != null && TimeTb.Text != "" && ClientCb.SelectedItem != null)
             {
                 var selDateTime = $"{DateDp.SelectedDate.Value.ToString("yyyy-MM-dd")} {TimeTb.Text}";//MM-только  с заглавных букв
                 var timeSplit = TimeTb.Text.Split(':');

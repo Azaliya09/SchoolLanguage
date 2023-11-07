@@ -32,6 +32,7 @@ namespace SchoolLanguage.Components
             {
                 EditBtn.Visibility = Visibility.Hidden;
                 DeleteBtn.Visibility = Visibility.Hidden;
+                SignUpBtn.Visibility = Visibility.Hidden;
             }
             TitleTb.Text = service.Title;
             CostTimeTb.Text = service.costTimeStr;
