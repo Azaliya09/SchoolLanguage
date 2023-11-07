@@ -23,9 +23,11 @@ namespace SchoolLanguage.Pages
         public ServiceEntriesPage()
         {
             InitializeComponent();
-            var nextDate = DateTime.Today.AddDays(1);
+            var endDate = DateTime.Today.AddDays(2);
+            //var startDate = Convert.ToDateTime.Today - new DateTime(0000, 00, 01);
             //EntriesPage.ItemsSource = App.db.ClientService.Where(x=> x.StartTime.ToString("dd.MM.YYYY") == DateTime.Now.ToString("dd.MM.YYYY") || x.StartTime.ToString("dd.MM.YYYY") == nextDate.ToString("dd.MM.YYYY")).ToList();
-            EntriesPage.ItemsSource = App.db.ClientService.ToList();
+            EntriesPage.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Today && x.StartTime < endDate).OrderBy(x => x.StartTime).ToList();
+
         }
     }
 }

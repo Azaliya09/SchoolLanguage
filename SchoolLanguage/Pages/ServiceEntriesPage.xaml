@@ -17,7 +17,7 @@
                         <GridViewColumn Width="150" Header="ФИО клиента" DisplayMemberBinding="{Binding Client.FullName}"/>
                         <GridViewColumn Width="150" Header="Почта" DisplayMemberBinding="{Binding Client.Email}"/>
                         <GridViewColumn Width="100" Header="Телефон" DisplayMemberBinding="{Binding Client.Phone}"/>
-                        <GridViewColumn Width="100" Header="Время записи" DisplayMemberBinding="{Binding StartTime, StringFormat=t}"/>
+                        <GridViewColumn Width="100" Header="Время записи" DisplayMemberBinding="{Binding StartTime, StringFormat= dd.MM hh:mm}"/>
                         <GridViewColumn Width="150" Header="До начала услуги" DisplayMemberBinding="{Binding TimeStart}"/>
                     </GridView.Columns>
                 </GridView>
