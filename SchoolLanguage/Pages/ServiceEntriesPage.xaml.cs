@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SchoolLanguage.Pages
 {
@@ -23,11 +24,25 @@ namespace SchoolLanguage.Pages
         public ServiceEntriesPage()
         {
             InitializeComponent();
-            var endDate = DateTime.Today.AddDays(2);
+            var endDate = DateTime.Now.AddDays(2);
             //var startDate = Convert.ToDateTime.Today - new DateTime(0000, 00, 01);
             //EntriesPage.ItemsSource = App.db.ClientService.Where(x=> x.StartTime.ToString("dd.MM.YYYY") == DateTime.Now.ToString("dd.MM.YYYY") || x.StartTime.ToString("dd.MM.YYYY") == nextDate.ToString("dd.MM.YYYY")).ToList();
-            EntriesPage.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Today && x.StartTime < endDate).OrderBy(x => x.StartTime).ToList();
+            EntriesPage.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Now && x.StartTime < endDate).OrderBy(x => x.StartTime).ToList();
 
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 30);
+            dispatcherTimer.Start();
+        }
+
+        private void EnteriesList_SelectionChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+
+        }
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            var endDate = DateTime.Now.AddDays(2);
+            EntriesPage.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Now && x.StartTime < endDate).OrderBy(x => x.StartTime).ToList();
         }
     }
 }

@@ -18,7 +18,14 @@
                         <GridViewColumn Width="150" Header="Почта" DisplayMemberBinding="{Binding Client.Email}"/>
                         <GridViewColumn Width="100" Header="Телефон" DisplayMemberBinding="{Binding Client.Phone}"/>
                         <GridViewColumn Width="100" Header="Время записи" DisplayMemberBinding="{Binding StartTime, StringFormat= dd.MM hh:mm}"/>
-                        <GridViewColumn Width="150" Header="До начала услуги" DisplayMemberBinding="{Binding TimeStart}"/>
+
+                        <GridViewColumn Width="150" Header="До начала услуги">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TimeStart}" Foreground="{Binding ColorStr}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
